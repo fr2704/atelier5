@@ -51,21 +51,20 @@ namespace atelier_5.vieuModel
                                };
                     case 3:
                         return from customer in _context.Customers
-                               where customer.customer_id == 
-                               where employee.Birth_Date.Value.Month == 01
+                               where customer.Country == "france"
+                        
                                select new
                                {
-                                   Prénom = employee.First_Name,
-                                   Nom = employee.Last_Name
+                                   nom  = customer.Contact_Name,
+                                   total = customer.Orders.Count
                                };
                     case 4:
-                        return from employee in _context.Employees
-                               where employee.Birth_Date.HasValue == true
-                               where employee.Birth_Date.Value.Month == 01
+                        return from product in _context.Products
+                               group product by product.Category.Category_Name into grpCat
                                select new
                                {
-                                   Prénom = employee.First_Name,
-                                   Nom = employee.Last_Name
+                                   category = grpCat.Key,
+                                   prix = grpCat.Average( product =>product.Unit_Price)
                                };
                     
                                    

@@ -78,6 +78,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Entreprise.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Order.cs" />
     <Compile Include="vieuModel\FilteredListViewModel.cs" />
     <Compile Include="view\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
